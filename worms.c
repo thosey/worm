@@ -27,10 +27,6 @@ void drawLine(int x1, int y1, int x2, int y2, int index, int pos, int range){
       thickness = max(1.0, thickness);
       color = WHITE;
     }
-   /* if ((index - pos)%99 == 0){
-        thickness = max(2.0, 1.5*thickness);
-        color = GREEN;
-    } */   
     DrawLineEx (start, end, thickness, color);   
 }
 int main(void)
@@ -55,11 +51,10 @@ int main(void)
     
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
-    SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
+    SetTargetFPS(60); 
     ClearBackground(BLACK);          
-    // Main game loop
-    while (!WindowShouldClose())    // Detect window close button or ESC key
+   
+    while (!WindowShouldClose()) 
     {              
         vx = vx + (step * (GetRandomValue(0, 2*discFactor) - discFactor)); 
         vy = vy + (step * (GetRandomValue(0, 2*discFactor) - discFactor)); 
@@ -108,8 +103,7 @@ int main(void)
         DrawText(TextFormat("%i, %i, %f", x, y, mag), screenWidth/2, 0, 20, LIGHTGRAY);
         EndDrawing();    
     }
-
-
+    
     CloseWindow();  
     
     free(pathsX);
